@@ -29,13 +29,13 @@ class StatusClient {
 
         await this.sleep(interval * 1000); // Wait for the client object's specified wait interval (converted from ms)
         elapsedTime += interval;
-        // Increase the interval length to decrease load on server
-        interval = Math.min(interval * 1.5, this.maxInterval);
+        // // Increase the interval length to decrease load on server
+        // interval = Math.min(interval * 1.5, this.maxInterval);
       } catch (error) {
         console.error(`Request failed: ${error.message}`);
         await this.sleep(interval * 1000);
         elapsedTime += interval;
-        interval = Math.min(interval * 1.5, this.maxInterval);
+        // interval = Math.min(interval * 1.5, this.maxInterval);
       }
     }
     throw new Error('Max wait time exceeded'); // If we exit the loop, we exceeded the max wait time
