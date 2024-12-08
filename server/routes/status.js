@@ -1,4 +1,4 @@
-// status endpoint
+// Status endpoint
 const express = require('express');
 const router = express.Router(); 
 

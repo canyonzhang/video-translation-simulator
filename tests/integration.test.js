@@ -1,17 +1,16 @@
-// Provides an integration test that starts the server and uses the client library to ping the /status endpoint in our statusRoute (using Jest and supertest)
+// Provides an integration test that starts the server and uses the client library to ping the /status endpoint in our statusRoute (using Jest)
 const request = require('supertest');
 const express = require('express');
 const statusRoute = require('../server/routes/status');
 const StatusClient = require('../client');
 
-jest.setTimeout(15000); // Set global timeout for test execution to 15 seconds
+jest.setTimeout(15000); 
 
 let server; // Store our initialized server object below
 
 const { router, resetServerState } = require('../server/routes/status');
 
 // Setup hooks 
-
 beforeAll((done) => {
   const app = express();
   app.use('/status', router); // Mount the router
@@ -74,7 +73,7 @@ test('Test that timeouts are handled gracefully', async () => {
 
   test('Test that client is able to handle errors returned from the server', async () => {
     process.env.DELAY_SECONDS = '1';
-    process.env.ERROR_PROBABILITY = '1.0';
+    process.env.ERROR_PROBABILITY = '1.0'; // Make sure we recieve an error from the server
   
     const client = new StatusClient({
       baseUrl: 'http://localhost:4000',
