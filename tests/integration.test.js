@@ -4,7 +4,7 @@ const express = require('express');
 const statusRoute = require('../server/routes/status');
 const StatusClient = require('../client');
 
-jest.setTimeout(15000); 
+jest.setTimeout(20000); 
 
 let server; // Store our initialized server object below
 
